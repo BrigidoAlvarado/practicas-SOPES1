@@ -1,0 +1,757 @@
+/usr/lib/jvm/jdk-22.0.2-oracle-x64/bin/java -javaagent:/snap/intellij-idea-ultimate/748/lib/idea_rt.jar=46077 -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath /home/brigido/Documentos/sopes-p1/practica-5/Interbloqueo/target/classes com.sopes1.practica5.Main
+=====================================================
+   SIMULADOR DE AEROPUERTO - PRÁCTICA No. 5
+   Sistemas Operativos 1
+=====================================================
+Ingrese el numero total de aviones a simular:
+10
+Ingrese cantidad de aviones en tierra (despegue): 6
+Ingrese cantidad de aviones en el aire (aterrizaje): 4
+
+Seleccione el escenario:
+  1) Escenario CON DEADLOCK (uso incorrecto de synchronized)
+  2) Escenario CORRECTO (sin deadlock)
+Opción: 1
+
+>>> Iniciando simulacion con 10 aviones <<<
+
+
+=============== EVENTO: AvionTierra-1 -> Solicitanto posicion inicial en Pista2-GENERAL =============
+>> Estado de Aviones:
+   - AvionTierra-1: Solicitanto posicion inicial en Pista2-GENERAL
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-1 -> Posicionado en Pista2-GENERAL Etapa 1 preparandose =============
+>> Estado de Aviones:
+   - AvionTierra-1: Posicionado en Pista2-GENERAL Etapa 1 preparandose
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-1 -> Esperando reservar Pista2-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-1: Esperando reservar Pista2-IZQUIERDA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-1 ->  Reservada Pista2-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-1:  Reservada Pista2-IZQUIERDA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-1 -> Esperando reservar Pista2-DERECHA =============
+>> Estado de Aviones:
+   - AvionTierra-1: Esperando reservar Pista2-DERECHA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-1 ->  Reservada Pista2-DERECHA =============
+>> Estado de Aviones:
+   - AvionTierra-1:  Reservada Pista2-DERECHA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-1 -> DESPEGADO por pista 2 =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 -> Solicitanto posicion inicial en Pista1-GENERAL =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: Solicitanto posicion inicial en Pista1-GENERAL
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 -> Posicionado en Pista1-GENERAL Etapa 1 preparandose =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: Posicionado en Pista1-GENERAL Etapa 1 preparandose
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 -> Esperando reservar Pista1-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: Esperando reservar Pista1-IZQUIERDA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 ->  Reservada Pista1-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2:  Reservada Pista1-IZQUIERDA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-2
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 -> Esperando reservar Pista1-DERECHA =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: Esperando reservar Pista1-DERECHA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-2
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 ->  Reservada Pista1-DERECHA =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2:  Reservada Pista1-DERECHA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-2
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-2 -> DESPEGADO por pista 1 =============
+>> Estado de Aviones:
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-2
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-3 -> Solicitanto posicion inicial en Pista1-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-2
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-3 -> Posicionado en Pista1-IZQUIERDA Etapa 1 preparandose =============
+>> Estado de Aviones:
+   - AvionTierra-3: Posicionado en Pista1-IZQUIERDA Etapa 1 preparandose
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-3 -> Esperando reservar Pista1-GENERAL =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-5 -> Solicitanto posicion inicial en Pista1-GENERAL =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-4 -> Solicitanto posicion inicial en Pista2-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Solicitanto posicion inicial en Pista2-IZQUIERDA
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-1
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-4 -> Posicionado en Pista2-IZQUIERDA Etapa 1 preparandose =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Posicionado en Pista2-IZQUIERDA Etapa 1 preparandose
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-4 -> Esperando reservar Pista2-GENERAL =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-6 -> Solicitanto posicion inicial en Pista1-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionAire-2 -> Aproximandose para aterrizar en pista 2 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionAire-1 -> Aproximandose para aterrizar en pista 1 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionAire-4 -> Aproximandose para aterrizar en pista 1 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionAire-3 -> Aproximandose para aterrizar en pista 2 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: DESPEGADO por pista 2
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: OCUPADA por AvionTierra-4
+   - Pista2-GENERAL: OCUPADA por AvionTierra-1
+   - Pista2-DERECHA: OCUPADA por AvionTierra-1
+=====================================================
+
+=============== EVENTO: AvionTierra-1 -> EN EL AIRE - pistas liberadas =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: Esperando reservar Pista2-GENERAL
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-4 ->  Reservada Pista2-GENERAL =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4:  Reservada Pista2-GENERAL
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-4 -> Esperando reservar Pista2-DERECHA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: Esperando reservar Pista2-DERECHA
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: DESPEGADO por pista 1
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: OCUPADA por AvionTierra-3
+   - Pista1-GENERAL: OCUPADA por AvionTierra-2
+   - Pista1-DERECHA: OCUPADA por AvionTierra-2
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionTierra-2 -> EN EL AIRE - pistas liberadas =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: Esperando reservar Pista2-DERECHA
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: LIBRE
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: OCUPADA por AvionTierra-4
+=====================================================
+
+=============== EVENTO: AvionTierra-4 ->  Reservada Pista2-DERECHA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4:  Reservada Pista2-DERECHA
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: OCUPADA por AvionTierra-4
+=====================================================
+
+=============== EVENTO: AvionTierra-4 -> DESPEGADO por pista 2 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: DESPEGADO por pista 2
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Solicitanto posicion inicial en Pista1-GENERAL
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: OCUPADA por AvionTierra-4
+=====================================================
+
+=============== EVENTO: AvionTierra-5 -> Posicionado en Pista1-GENERAL Etapa 1 preparandose =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: DESPEGADO por pista 2
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Posicionado en Pista1-GENERAL Etapa 1 preparandose
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: OCUPADA por AvionTierra-4
+=====================================================
+
+=============== EVENTO: AvionTierra-5 -> Esperando reservar Pista1-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: DESPEGADO por pista 2
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: OCUPADA por AvionTierra-4
+   - Pista2-DERECHA: OCUPADA por AvionTierra-4
+=====================================================
+
+=============== EVENTO: AvionTierra-4 -> EN EL AIRE - pistas liberadas =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Aproximandose para aterrizar en pista 2
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionAire-3 -> Reservo Pista2-IZQUIERDA para aterrizar =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Reservo Pista2-IZQUIERDA para aterrizar
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionAire-3
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionAire-3 -> Reservo Pista2-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: Reservo Pista2-IZQUIERDA
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionAire-3
+   - Pista2-GENERAL: OCUPADA por AvionAire-3
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionAire-3 -> ATERRIZADO en pista 2 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: ATERRIZADO en pista 2
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionAire-3
+   - Pista2-GENERAL: OCUPADA por AvionAire-3
+   - Pista2-DERECHA: OCUPADA por AvionAire-3
+=====================================================
+
+=============== EVENTO: AvionAire-3 -> ATERRIZAJE COMPLETO - pistas liberadas =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: ATERRIZAJE COMPLETO - pistas liberadas
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Aproximandose para aterrizar en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionAire-2 -> Reservo Pista2-IZQUIERDA para aterrizar =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: ATERRIZAJE COMPLETO - pistas liberadas
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Reservo Pista2-IZQUIERDA para aterrizar
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionAire-2
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionAire-2 -> Reservo Pista2-IZQUIERDA =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: ATERRIZAJE COMPLETO - pistas liberadas
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: Reservo Pista2-IZQUIERDA
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionAire-2
+   - Pista2-GENERAL: OCUPADA por AvionAire-2
+   - Pista2-DERECHA: LIBRE
+=====================================================
+
+=============== EVENTO: AvionAire-2 -> ATERRIZADO en pista 2 =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: ATERRIZAJE COMPLETO - pistas liberadas
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: ATERRIZADO en pista 2
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: OCUPADA por AvionAire-2
+   - Pista2-GENERAL: OCUPADA por AvionAire-2
+   - Pista2-DERECHA: OCUPADA por AvionAire-2
+=====================================================
+
+=============== EVENTO: AvionAire-2 -> ATERRIZAJE COMPLETO - pistas liberadas =============
+>> Estado de Aviones:
+   - AvionTierra-3: Esperando reservar Pista1-GENERAL
+   - AvionAire-3: ATERRIZAJE COMPLETO - pistas liberadas
+   - AvionTierra-4: EN EL AIRE - pistas liberadas
+   - AvionAire-4: Aproximandose para aterrizar en pista 1
+   - AvionTierra-1: EN EL AIRE - pistas liberadas
+   - AvionTierra-2: EN EL AIRE - pistas liberadas
+   - AvionTierra-5: Esperando reservar Pista1-IZQUIERDA
+   - AvionAire-1: Aproximandose para aterrizar en pista 1
+   - AvionTierra-6: Solicitanto posicion inicial en Pista1-IZQUIERDA
+   - AvionAire-2: ATERRIZAJE COMPLETO - pistas liberadas
+>> Estado de Pistas:
+   - Pista1-IZQUIERDA: LIBRE
+   - Pista1-GENERAL: OCUPADA por AvionTierra-5
+   - Pista1-DERECHA: LIBRE
+   - Pista2-IZQUIERDA: LIBRE
+   - Pista2-GENERAL: LIBRE
+   - Pista2-DERECHA: LIBRE
+=====================================================
+>>> Hilo bloqueado (posible deadlock): AvionTierra-3
+>>> Hilo bloqueado (posible deadlock): AvionTierra-5
+>>> Hilo bloqueado (posible deadlock): AvionTierra-6
+>>> Hilo bloqueado (posible deadlock): AvionAire-1
+>>> Hilo bloqueado (posible deadlock): AvionAire-4
+
+*** DEADLOCK DETECTADO: el sistema quedo congelado. ***
+*** Cierre la aplicación manualmente (Ctrl+C). ***
